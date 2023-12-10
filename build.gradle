@@ -1,0 +1,39 @@
+plugins {
+    id "java"
+    id "application"
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
+configurations {
+    koraBom
+    implementation.extendsFrom(koraBom)
+    annotationProcessor.extendsFrom(koraBom)
+}
+
+dependencies {
+    koraBom platform("ru.tinkoff.kora:kora-parent:1.0.0.RC12")
+
+    implementation "ru.tinkoff.kora:http-client-async:1.0.0.RC12"
+    implementation 'ru.tinkoff.kora:config-common:1.0.0.RC12'
+    implementation "ru.tinkoff.kora:config-hocon:1.0.0.RC12"
+    implementation "ru.tinkoff.kora:http-server-undertow:1.0.0.RC12"
+    implementation "ru.tinkoff.kora:json-module:1.0.0.RC12"
+    implementation "ru.tinkoff.kora:logging-logback:1.0.0.RC12"
+    implementation "ru.tinkoff.kora:scheduling-jdk"
+    implementation "ru.tinkoff.kora:micrometer-module"
+
+    annotationProcessor "ru.tinkoff.kora:annotation-processors"
+}
+
+distTar {
+    archiveFileName = 'application.tar'
+}
