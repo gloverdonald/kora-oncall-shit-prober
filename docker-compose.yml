@@ -16,5 +16,5 @@ services:
     environment:
       ONCALL_USERNAME: root
       ONCALL_PASSWORD: root
-      ONCALL_URL: http://158.160.98.4:8080
-      ONCALL_API_URL: http://158.160.98.4:8080/api/v0
+      ONCALL_URL: http://localhost:8080
+      ONCALL_API_URL: http://localhost:8080/api/v0
